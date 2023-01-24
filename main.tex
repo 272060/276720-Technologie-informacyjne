@@ -1,29 +1,190 @@
 \documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage [polish]{babel}
-\usepackage[T1]{fontenc}
-\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{csvsimple}
+\pgfplotsset{width=13cm, compat=1.18}
 
-\title{Project1}
+\title{Laboratorium}
 \author{276720 }
-\date{December 2022}
+
 
 \begin{document}
 
+
 \maketitle
 
-\section{Wprowadzenie teoretyczne}
-{\Large Spadek swobodny – ruch odbywający się wyłącznie pod wpływem
- ciężaru (siły grawitacji), bez oporów ośrodka.}
-\section{Przebieg eksperymentu}
-   \begin{figure}[h!]
-  \includegraphics[scale=0.5]{rys0010.jpg}
-  \caption{Siły w spadku}
-  \label{fig:birds}
-\end{figure}
+\begin{center}
+\section*{Anastasiya Martynenka, Wt.Parz. 7:30}
+\end{center}
 
-{\Large... Jak widac na rys. \ref{fig:birds}}
-\section{Wyniki pomiarów}
-\section{Wnioski}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    xmin=1, xmax=97,
+    ymin=-100, ymax=600,
+    xtick={1,7,13,19,25,31,37,43,49,55,61,67,73,79,85,91,97},
+    ytick={-100,0,100,200,300,400,500,600},
+    legend pos=north west,
+    ymajorgrids=true,
+    grid style=dashed,
+]
+
+\addplot[
+    color=blue,
+    mark=square,
+    ]
+    coordinates {
+    (1,-3.83)(19,10)(33,50)(49,100)(67,200)(79,300)(91,400)(97,495)
+    };
+
+    
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+    enlargelimits=false,
+]
+\addplot[
+    only marks,
+    scatter,
+    mark=halfcircle*,
+    mark size=1.9pt]
+table[meta=class]
+{zeszytproba2.dat};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{longtable}[c]{| c | c |}
+\caption{Long table caption.\label{long}}\\
+
+ \hline
+ \multicolumn{2}{| c |}{Tabelka z Excel}\\
+ \hline
+ t[s] & s\\
+ \hline
+ \endfirsthead
+ 
+ \hline
+ \multicolumn{2}{|c|}{Tabela z Excel \ref{long}}\\
+ \hline
+ t[s] & s\\
+ \hline
+ \endhead
+ 
+  \hline
+ \endfoot
+
+ \hline
+ \multicolumn{2}{| c |}{Koniec Tabieli}\\
+ \hline\hline
+ \endlastfoot
+
+0.1 & 0.05\\
+0.2 & 0.2\\
+0.3 & 0.44\\
+0.4 & 0.78\\
+0.5 & 1.23\\
+0.6 & 1.76\\
+0.7 & 2.4\\
+0.8 & 3.14\\
+0.9 & 3.97\\
+1 & 4.9\\
+1.1 & 5.93\\
+1.2 & 7.06\\
+1.3 & 8.28\\
+1.4 & 9.6\\
+1.5 & 11.03\\
+1.6 & 12.54\\
+1.7 & 14.16\\
+1.8 & 15.88\\
+1.9 & 17.69\\
+2 & 19.6\\
+2.1 & 21.61\\
+2.2 & 23.72\\
+2.3 & 25.92\\
+2.4 & 28.22\\
+2.5 & 30.63\\
+2.6 & 33.12\\
+2.7 & 35.72\\
+2.8 & 38.42\\
+2.9 & 41.21\\
+3 & 44.1\\
+3.1 & 47.09\\
+3.2 & 50.18\\
+3.3 & 53.36\\
+3.4 & 56.64\\
+3.5 & 60.03\\
+3.6 & 63.5\\
+3.7 & 67.08\\
+3.8 & 70.76\\
+3.9 & 74.53\\
+4 & 78.4\\
+4.1 & 82.37\\
+4.2 & 86.44\\
+4.3 & 90.6\\
+4.4 & 94.86\\
+4.5 & 99.23\\
+4.6 & 103.68\\
+4.7 & 108.24\\
+4.8 & 112.9\\
+4.9 & 117.65\\
+5 & 122.5\\
+5.1 & 127.45\\
+5.2 & 132.5\\
+5.3 & 137.64\\
+5.4 & 142.88\\
+5.5 & 148.23\\
+5.6 & 153.66\\
+5.7 & 159.2\\
+5.8 & 164.84\\
+5.9 & 170.57\\
+6 & 176.4\\
+6.1 & 182.33\\
+6.2 & 188.36\\
+6.3 & 194.48\\
+6.4 & 200.7\\
+6.5 & 207.03\\
+6.6 & 213.44\\
+6.7 & 219.96\\
+6.8 & 226.58\\
+6.9 & 233.29\\
+7 & 240.1\\
+7.1 & 247.01\\
+7.2 & 254.02\\
+7.3 & 261.12\\
+7.4 & 268.32\\
+7.5 & 275.63\\
+7.6 & 283.02\\
+7.7 & 290.52\\
+7.8 & 298.12\\
+7.9 & 305.81\\
+8 & 313.6\\
+8.1 & 321.49\\
+8.2 & 329.48\\
+8.3 & 337.56\\
+8.4 & 345.74\\
+8.5 & 354.03\\
+8.6 & 362.4\\
+8.7 & 370.88\\
+8.8 & 379.46\\
+8.9 & 388.13\\
+9 & 396.9\\
+9.1 & 405.77\\
+9.2 & 414.74\\
+9.3 & 423.8\\
+9.4 & 432.96\\
+9.5 & 442.23\\
+9.6 & 451.58\\
+9.7 & 461.04\\
+9.8 & 470.6\\
+9.9 & 480.25\\
+10 & 490.0\\
+
+
+
+\end{longtable}
 
 \end{document}
